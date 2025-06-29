@@ -49,10 +49,10 @@ const ServicesSection = () => {
                     </h2>
                     <h3 className="text-2xl font-bold text-blue-700 mb-6">Who We Are</h3>
                     <p className="text-gray-600 mb-8 text-xl">
-                        Welcome to Cynergy Physical and Occupational Therapy NYC, your premier destination for specialized orthopedic physical therapy and sports performance physical therapy services in the heart of New York City. Our devoted team of licensed physical, occupational, and hand therapists is dedicated to improving your well-being through personalized, one-on-one care.
+                        Welcome to SEVA Physical and Occupational Therapy NYC, your premier destination for specialized orthopedic physical therapy and sports performance physical therapy services in the heart of New York City. Our devoted team of licensed physical, occupational, and hand therapists is dedicated to improving your well-being through personalized, one-on-one care.
                     </p>
                     <p className="text-gray-600 mb-8 text-xl">
-                        At Cynergy, we stand out from the competition by taking a holistic approach to rehabilitation. Unlike other clinics, we never rely on aides or assistants, ensuring that you receive expert care and individualized attention throughout your journey. Our mission is to empower you to thrive in your daily life, recognizing the active, demanding lifestyles of New Yorkers.
+                        At SEVA, we stand out from the competition by taking a holistic approach to rehabilitation. Unlike other clinics, we never rely on aides or assistants, ensuring that you receive expert care and individualized attention throughout your journey. Our mission is to empower you to thrive in your daily life, recognizing the active, demanding lifestyles of New Yorkers.
                     </p>
                     <p className="text-gray-500 mb-12 text-lg">
                         Whether you seek orthopedic rehabilitation, pain management, or injury prevention, our experienced therapists collaborate closely with you to craft a tailored treatment plan that caters to your unique needs. We understand the importance of peak performance in your life, and we're here to help you achieve it.

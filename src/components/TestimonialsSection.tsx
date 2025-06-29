@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -52,7 +53,7 @@ const TestimonialsSection = () => {
               className="bg-gray-50 rounded-xl p-8 relative hover:shadow-lg transition-shadow duration-300"
             >
               <Quote className="absolute top-6 right-6 w-8 h-8 text-purple-200" />
-              
+
               <div className="flex items-center mb-6">
                 <img
                   src={testimonial.image}
@@ -73,7 +74,7 @@ const TestimonialsSection = () => {
                   </div>
                 </div>
               </div>
-              
+
               <p className="text-gray-700 leading-relaxed">
                 "{testimonial.text}"
               </p>
@@ -82,9 +83,9 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+          <Link to='/reviews' className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
             Read More Reviews
-          </button>
+          </Link>
         </div>
       </div>
     </section>

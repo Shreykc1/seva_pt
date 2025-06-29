@@ -68,7 +68,7 @@ const PainAreaSection = () => {
                 {/* Right: Human body image with pain area labels */}
                 <div className="flex-1 flex items-center justify-center relative min-h-[700px]">
                     <img
-                        src="/public/images/pain.webp"
+                        src="/images/pain.webp"
                         alt="Human body pain areas"
                         className="max-h-[700px] w-auto select-none pointer-events-none"
                     />

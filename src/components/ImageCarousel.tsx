@@ -43,7 +43,7 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden -mt-[9.8rem]">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div

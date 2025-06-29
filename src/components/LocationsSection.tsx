@@ -1,54 +1,7 @@
-import React from 'react';
-import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react';
-
 const LocationsSection = () => {
-    const locations = [
-        {
-            name: 'Manhattan - Midtown',
-            address: '123 W 42nd Street, New York, NY 10036',
-            phone: '(212) 974-7252',
-            hours: 'Mon-Fri: 7AM-8PM, Sat: 8AM-4PM',
-            image: 'https://images.pexels.com/photos/378570/pexels-photo-378570.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop'
-        },
-        {
-            name: 'Brooklyn - Park Slope',
-            address: '456 7th Avenue, Brooklyn, NY 11215',
-            phone: '(718) 555-0123',
-            hours: 'Mon-Fri: 7AM-8PM, Sat: 8AM-4PM',
-            image: 'https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop'
-        },
-        {
-            name: 'Queens - Astoria',
-            address: '789 Northern Blvd, Astoria, NY 11103',
-            phone: '(718) 555-0456',
-            hours: 'Mon-Fri: 7AM-8PM, Sat: 8AM-4PM',
-            image: 'https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop'
-        },
-        {
-            name: 'Manhattan - Upper East Side',
-            address: '321 E 86th Street, New York, NY 10028',
-            phone: '(212) 555-0789',
-            hours: 'Mon-Fri: 7AM-8PM, Sat: 8AM-4PM',
-            image: 'https://images.pexels.com/photos/3768997/pexels-photo-3768997.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop'
-        },
-        {
-            name: 'Bronx - Riverdale',
-            address: '654 Johnson Avenue, Bronx, NY 10463',
-            phone: '(718) 555-0321',
-            hours: 'Mon-Fri: 7AM-8PM, Sat: 8AM-4PM',
-            image: 'https://images.pexels.com/photos/3768582/pexels-photo-3768582.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop'
-        },
-        {
-            name: 'Staten Island - St. George',
-            address: '987 Bay Street, Staten Island, NY 10301',
-            phone: '(718) 555-0654',
-            hours: 'Mon-Fri: 7AM-8PM, Sat: 8AM-4PM',
-            image: 'https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop'
-        }
-    ];
 
     return (
-        <section className="py-20 bg-gray-50">
+        <section id="location" className="py-20 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -75,11 +28,11 @@ const LocationsSection = () => {
                     </div>
                 </div>
 
-                <div className="text-center mt-12">
+                {/* <div className="text-center mt-12">
                     <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
                         View All Locations on Map
                     </button>
-                </div>
+                </div> */}
             </div>
         </section>
     );

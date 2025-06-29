@@ -7,7 +7,7 @@ const Footer = () => {
   ];
 
   const services = [
-    'Physical Therapy', 'Sports Medicine', 'Wellness Programs', 'Group Classes', 
+    'Physical Therapy', 'Sports Medicine', 'Wellness Programs', 'Group Classes',
     'Sports Performance', 'Injury Prevention'
   ];
 
@@ -27,12 +27,12 @@ const Footer = () => {
                 <div className="text-lg font-bold">C</div>
               </div>
               <div>
-                <div className="text-lg font-bold">CYNERGY</div>
+                <div className="text-lg font-bold">SEVA</div>
                 <div className="text-sm opacity-75">the wellness den</div>
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Providing personalized, one-on-one physical therapy and wellness services 
+              Providing personalized, one-on-one physical therapy and wellness services
               across New York City for over 15 years.
             </p>
             <div className="flex space-x-4">
@@ -81,15 +81,15 @@ const Footer = () => {
                   <p className="text-sm text-gray-400">Main Line</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">info@cynergypt.com</p>
+                  <p className="text-gray-300">info@SEVApt.com</p>
                   <p className="text-sm text-gray-400">General Inquiries</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <Clock className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                 <div>
@@ -106,7 +106,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 Cynergy Physical Therapy. All rights reserved.
+              © 2024 SEVA Physical Therapy. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
