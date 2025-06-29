@@ -9,28 +9,28 @@ const TestimonialsSection = () => {
       role: 'Marathon Runner',
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
-      text: 'The one-on-one attention at Cynergy made all the difference in my recovery. I was back to running marathons faster than I ever imagined possible.'
+      text: 'The one-on-one attention at SEVA PT made all the difference in my recovery. I was back to running marathons faster than I ever imagined possible.'
     },
     {
       name: 'Michael Chen',
       role: 'Professional Athlete',
       image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
-      text: 'The sports medicine program at Cynergy is world-class. Their expertise helped me not just recover, but perform better than before my injury.'
+      text: 'The sports medicine program at SEVA PT is world-class. Their expertise helped me not just recover, but perform better than before my injury.'
     },
     {
       name: 'Emily Rodriguez',
       role: 'Office Worker',
       image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
-      text: 'After years of back pain from sitting at a desk, Cynergy helped me understand my body better and gave me tools to stay pain-free.'
+      text: 'After years of back pain from sitting at a desk, SEVA PT helped me understand my body better and gave me tools to stay pain-free.'
     },
     {
       name: 'David Thompson',
       role: 'Weekend Warrior',
       image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
-      text: 'The personalized approach at Cynergy is incredible. They took the time to understand my lifestyle and created a plan that actually works.'
+      text: 'The personalized approach at SEVA PT is incredible. They took the time to understand my lifestyle and created a plan that actually works.'
     }
   ];
 
@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
             What Our Patients Say
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Real stories from real people who've experienced the Cynergy difference
+            Real stories from real people who've experienced the SEVA PT difference
           </p>
         </div>
 

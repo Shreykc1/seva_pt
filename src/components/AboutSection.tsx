@@ -35,11 +35,11 @@ const AboutSection = () => {
           {/* Left Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Why Choose Cynergy?
+              Why Choose SEVA PT?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              At Cynergy, we believe in providing therapy that is always one-on-one. 
-              Our personalized approach ensures that every patient receives the individual 
+              At SEVA PT, we believe in providing therapy that is always one-on-one.
+              Our personalized approach ensures that every patient receives the individual
               attention they deserve to achieve their health and wellness goals.
             </p>
 
