@@ -64,7 +64,6 @@ const categories = [
             'Postoperative Shoulder Care',
             'Rotator Cuff Injury',
             'Shoulder Impingement',
-            'Shoulder Labral Tear',
         ],
     },
     {
