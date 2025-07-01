@@ -3,7 +3,7 @@ const WhatWeOffer = () => {
         <div className="bg-white min-h-screen py-20 px-4">
             {/* Section 1 */}
             <section className="max-w-4xl mx-auto text-center mb-24">
-                <h1 className="text-5xl md:text-6xl text-purple-600 mb-6 leading-tight uppercase tracking-tight">
+                <h1 className="text-5xl md:text-6xl text-orange-600 mb-6 leading-tight uppercase tracking-tight">
                     Specialized Care For Your Unique Needs
                 </h1>
                 <h2 className="text-2xl md:text-3xl font-light text-gray-700 mb-10 tracking-wide">
@@ -16,7 +16,7 @@ const WhatWeOffer = () => {
 
             {/* Section 2 */}
             <section className="max-w-4xl mx-auto text-center">
-                <h1 className="text-5xl md:text-6xl text-purple-600 mb-6 leading-tight uppercase tracking-tight">
+                <h1 className="text-5xl md:text-6xl text-orange-600 mb-6 leading-tight uppercase tracking-tight">
                     Whole-Person Care For Pain Relief And Recovery
                 </h1>
                 <h2 className="text-2xl md:text-3xl font-light text-gray-700 mb-10 tracking-wide">

@@ -55,25 +55,25 @@ const Contact = () => {
             icon: <FaPhone className="w-6 h-6" />,
             title: "Phone",
             details: ["732-986-6576"],
-            color: "bg-purple-500"
+            color: "bg-orange-500"
         },
         {
             icon: <FaEnvelope className="w-6 h-6" />,
             title: "Email",
             details: ["sevaptny@gmail.com"],
-            color: "bg-purple-500"
+            color: "bg-orange-500"
         },
         {
             icon: <FaMapMarkerAlt className="w-6 h-6" />,
             title: "Address",
             details: ["123 W 42nd Street", "New York, NY 10036"],
-            color: "bg-purple-500"
+            color: "bg-orange-500"
         },
         {
             icon: <FaClock className="w-6 h-6" />,
             title: "Hours",
             details: ["Mon-Fri: 7AM-8PM", "Sat: 8AM-4PM", "Sun: Closed"],
-            color: "bg-purple-500"
+            color: "bg-orange-500"
         }
     ];
 
@@ -89,7 +89,7 @@ const Contact = () => {
     return (
         <div className="bg-white min-h-screen">
             {/* Header Section */}
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 py-20">
+            <div className="bg-gradient-to-br from-orange-50 to-blue-50 py-20">
                 <div className="max-w-6xl mx-auto px-4 text-center">
                     <h1 className="text-5xl md:text-6xl font-light text-gray-800 mb-6">
                         Contact Us
@@ -99,7 +99,7 @@ const Contact = () => {
                     </p>
                     <button
                         onClick={scrollToForm}
-                        className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-full font-semibold transition-colors transform hover:scale-105"
+                        className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-semibold transition-colors transform hover:scale-105"
                     >
                         Book Appointment
                     </button>
@@ -147,7 +147,7 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
                                             placeholder="Enter your full name"
                                         />
                                     </div>
@@ -162,7 +162,7 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
                                             placeholder="Enter your email"
                                         />
                                     </div>
@@ -179,7 +179,7 @@ const Contact = () => {
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleInputChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
                                             placeholder="Enter your phone number"
                                         />
                                     </div>
@@ -192,7 +192,7 @@ const Contact = () => {
                                             name="service"
                                             value={formData.service}
                                             onChange={handleInputChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
                                         >
                                             <option value="">Select a service</option>
                                             {services.map((service, index) => (
@@ -213,14 +213,14 @@ const Contact = () => {
                                         onChange={handleInputChange}
                                         required
                                         rows={5}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors resize-none"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors resize-none"
                                         placeholder="Tell us about your health concerns or questions..."
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-purple-600 hover:bg-purple-700 text-white py-4 px-6 rounded-lg font-semibold transition-colors duration-300 transform hover:scale-105"
+                                    className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 px-6 rounded-lg font-semibold transition-colors duration-300 transform hover:scale-105"
                                 >
                                     Send Message
                                 </button>
@@ -266,15 +266,15 @@ const Contact = () => {
                                 <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Contact</h3>
                                 <div className="space-y-3">
                                     <div className="flex items-center space-x-3">
-                                        <FaPhone className="w-4 h-4 text-purple-600" />
+                                        <FaPhone className="w-4 h-4 text-orange-600" />
                                         <span className="text-gray-600">732-986-6576</span>
                                     </div>
                                     <div className="flex items-center space-x-3">
-                                        <FaEnvelope className="w-4 h-4 text-purple-600" />
+                                        <FaEnvelope className="w-4 h-4 text-orange-600" />
                                         <span className="text-gray-600">info@sevawellness.com</span>
                                     </div>
                                     <div className="flex items-center space-x-3">
-                                        <FaClock className="w-4 h-4 text-purple-600" />
+                                        <FaClock className="w-4 h-4 text-orange-600" />
                                         <span className="text-gray-600">Mon-Fri: 7AM-8PM</span>
                                     </div>
                                 </div>
@@ -285,22 +285,22 @@ const Contact = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="py-16 bg-purple-900">
+            <div className="py-16 bg-orange-900">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
                         Ready to Start Your Wellness Journey?
                     </h2>
-                    <p className="text-xl text-purple-100 mb-8">
+                    <p className="text-xl text-orange-100 mb-8">
                         Book your consultation today and take the first step towards better health
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button
                             onClick={scrollToForm}
-                            className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+                            className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
                         >
                             Book Appointment
                         </button>
-                        <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                        <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition-colors">
                             Learn More
                         </button>
                     </div>

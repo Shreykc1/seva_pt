@@ -1,36 +1,36 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaStar, FaQuoteLeft, FaChevronLeft, FaChevronRight, FaHeart } from 'react-icons/fa';
 
 const reviews = [
     {
         id: 1,
-        name: "Sarah Johnson",
+        name: "Michelle G.",
         rating: 5,
         date: "March 2024",
-        service: "Chiropractic Care",
-        text: "Dr. Smith and the team at SEVA Health and Wellness completely transformed my experience with back pain. After months of suffering, their comprehensive approach combining chiropractic care and physical therapy gave me my life back. The staff is incredibly professional and caring.",
-        avatar: "SJ",
+        service: "ADPT",
+        text: "ADPT by SEVA is a facility that helps to build not only the strength and recovery needed to physically heal but also encourages the positive mental attitude it takes to push through the pain to fully rehabilitate. The therapists are engaged and work hard to map out a plan specifically for the individual's needs. Excellent!",
+        avatar: "MG",
         verified: true
     },
     {
         id: 2,
-        name: "Michael Chen",
+        name: "Rami H.",
         rating: 5,
         date: "February 2024",
         service: "Physical Therapy",
-        text: "I came in with a severe shoulder injury that was affecting my daily activities. The physical therapy program was tailored perfectly to my needs. Within weeks, I noticed significant improvement. The therapists are knowledgeable and genuinely care about your recovery.",
-        avatar: "MC",
+        text: "Best in NY. Professional, Fun, intense, friendly, challenging, and effective. I wouldn't go anywhere else for physio, injury rehab, or strength and conditioning. Very friendly and professional front desk and reception.",
+        avatar: "RH",
         verified: true
     },
     {
         id: 3,
-        name: "Emily Rodriguez",
+        name: "Valériane L.",
         rating: 5,
         date: "January 2024",
         service: "Acupuncture",
-        text: "The acupuncture sessions have been life-changing for my chronic migraines. The practitioner is skilled and takes time to understand your specific needs. I've experienced a dramatic reduction in both frequency and intensity of my headaches.",
-        avatar: "ER",
+        text: "Being a professional dancer I've met a lot of physical therapists and Laurence is by far the most skilled, patient and understanding. Not only did she help me target areas to strengthen but she also adapted each exercise so that I could relate it to dance. I felt supported and prepared physically even in the midst of a pandemic with a tailored approach which has been a privilege to experience.",
+        avatar: "VL",
         verified: true
     },
     {
@@ -45,22 +45,22 @@ const reviews = [
     },
     {
         id: 5,
-        name: "Lisa Park",
+        name: "Jacqueline L",
         rating: 5,
         date: "November 2023",
         service: "Occupational Therapy",
-        text: "After my car accident, I struggled with basic daily tasks. The occupational therapy program helped me regain my independence. The therapists are patient, encouraging, and truly experts in their field. I'm grateful for their support.",
-        avatar: "LP",
+        text: "I first came in 3 months post ACL reconstruction last year and I've been coming to ADPT for 10 months now. Within 10 months, I went from struggling to walk without crutches to jogging and doing plyometrics training now! Alvin, my PT, truly cares about my goals and has been very transparent about the different stages of recovery and milestones that I have to achieve before returning to sports. This really helps me focus on small goals and celebrate the progress that I've made along the way. The whole team treats me like a professional athlete and they have pushed me to train harder than I ever had. They've helped me become stronger than I was before my injury. ",
+        avatar: "JL",
         verified: true
     },
     {
         id: 6,
-        name: "Robert Williams",
+        name: "Emily A",
         rating: 5,
         date: "October 2023",
         service: "Multi-disciplinary Care",
-        text: "The combination of chiropractic care, physical therapy, and acupuncture has been incredible for my chronic back pain. The team works together seamlessly to provide comprehensive care. I've never felt better!",
-        avatar: "RW",
+        text: "Dipti is an awesome physical therapist. She is kind, sensitive, and holistically insightful, sharing her thoughts and information with you in a way that's encouraging and empowering. She has helped me solve my long-lasting issues with neck/shoulder tension and alignment, which is a great relief and very motivating - I'm now working on strength training! It's been a pleasure to work with her at Cynergy Cobble Hill, I highly recommend Mena and this physical therapy practice",
+        avatar: "EA",
         verified: true
     }
 ];
@@ -78,8 +78,35 @@ const featuredReview = {
 const Reviews = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [likedReviews, setLikedReviews] = useState<number[]>([]);
+    const [reviewsPerView, setReviewsPerView] = useState(1);
     const formRef = useRef<HTMLDivElement>(null);
     const navigate = useNavigate();
+
+    // Responsive reviews per view
+    useEffect(() => {
+        const updateReviewsPerView = () => {
+            if (window.innerWidth >= 1024) {
+                setReviewsPerView(3);
+            } else if (window.innerWidth >= 768) {
+                setReviewsPerView(2);
+            } else {
+                setReviewsPerView(1);
+            }
+        };
+        updateReviewsPerView();
+        window.addEventListener('resize', updateReviewsPerView);
+        return () => window.removeEventListener('resize', updateReviewsPerView);
+    }, []);
+
+    // Calculate number of pages
+    const totalPages = Math.ceil(reviews.length / reviewsPerView);
+
+    // Clamp currentSlide if reviewsPerView changes
+    useEffect(() => {
+        if (currentSlide > totalPages - 1) {
+            setCurrentSlide(totalPages - 1);
+        }
+    }, [reviewsPerView, totalPages]);
 
     const toggleLike = (reviewId: number) => {
         setLikedReviews(prev =>
@@ -90,16 +117,15 @@ const Reviews = () => {
     };
 
     const scrollToForm = () => {
-        // Navigate to contact page with a hash to trigger scroll
         navigate('/contact#form');
     };
 
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % reviews.length);
+        setCurrentSlide((prev) => (prev + 1) % totalPages);
     };
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + reviews.length) % reviews.length);
+        setCurrentSlide((prev) => (prev - 1 + totalPages) % totalPages);
     };
 
     const renderStars = (rating: number) => {
@@ -111,10 +137,15 @@ const Reviews = () => {
         ));
     };
 
+    // Get reviews for current page
+    const startIdx = currentSlide * reviewsPerView;
+    const endIdx = startIdx + reviewsPerView;
+    const visibleReviews = reviews.slice(startIdx, endIdx);
+
     return (
         <div className="bg-white min-h-screen">
             {/* Header Section */}
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 py-20">
+            <div className="bg-gradient-to-br from-orange-50 to-blue-50 py-20">
                 <div className="max-w-6xl mx-auto px-4 text-center">
                     <h1 className="text-5xl md:text-6xl font-light text-gray-800 mb-6">
                         Patient Reviews & Testimonials
@@ -124,17 +155,17 @@ const Reviews = () => {
                     </p>
                     <div className="flex items-center justify-center space-x-8 text-center">
                         <div>
-                            <div className="text-3xl font-bold text-purple-600">4.9</div>
+                            <div className="text-3xl font-bold text-orange-600">4.9</div>
                             <div className="text-sm text-gray-600">Average Rating</div>
                         </div>
                         <div className="w-px h-12 bg-gray-300"></div>
                         <div>
-                            <div className="text-3xl font-bold text-purple-600">500+</div>
+                            <div className="text-3xl font-bold text-orange-600">500+</div>
                             <div className="text-sm text-gray-600">Happy Patients</div>
                         </div>
                         <div className="w-px h-12 bg-gray-300"></div>
                         <div>
-                            <div className="text-3xl font-bold text-purple-600">98%</div>
+                            <div className="text-3xl font-bold text-orange-600">98%</div>
                             <div className="text-sm text-gray-600">Would Recommend</div>
                         </div>
                     </div>
@@ -146,11 +177,11 @@ const Reviews = () => {
                 <div className="max-w-4xl mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-light text-gray-800 mb-2">Featured Story</h2>
-                        <div className="w-24 h-1 bg-purple-400 mx-auto"></div>
+                        <div className="w-24 h-1 bg-orange-400 mx-auto"></div>
                     </div>
-                    <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-3xl p-8 md:p-12 shadow-lg">
+                    <div className="bg-gradient-to-r from-orange-50 to-blue-50 rounded-3xl p-8 md:p-12 shadow-lg">
                         <div className="flex items-start space-x-4 mb-6">
-                            <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
                                 {featuredReview.avatar}
                             </div>
                             <div className="flex-1">
@@ -168,7 +199,7 @@ const Reviews = () => {
                             </div>
                         </div>
                         <div className="relative">
-                            <FaQuoteLeft className="text-purple-300 text-4xl mb-4" />
+                            <FaQuoteLeft className="text-orange-300 text-4xl mb-4" />
                             <p className="text-lg text-gray-700 leading-relaxed italic">
                                 "{featuredReview.text}"
                             </p>
@@ -182,21 +213,21 @@ const Reviews = () => {
                 <div className="max-w-6xl mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-light text-gray-800 mb-2">What Our Patients Say</h2>
-                        <div className="w-24 h-1 bg-purple-400 mx-auto"></div>
+                        <div className="w-24 h-1 bg-orange-400 mx-auto"></div>
                     </div>
 
                     <div className="relative">
                         <div className="flex overflow-hidden">
                             <div
-                                className="flex transition-transform duration-500 ease-in-out py-10"
-                                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                                className="flex transition-transform duration-500 ease-in-out py-10 w-full"
+                                style={{ transform: `translateX(0%)` }}
                             >
-                                {reviews.map((review) => (
+                                {visibleReviews.map((review) => (
                                     <div key={review.id} className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                                         <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
                                             <div className="flex items-start justify-between mb-4">
                                                 <div className="flex items-center space-x-3">
-                                                    <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
+                                                    <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
                                                         {review.avatar}
                                                     </div>
                                                     <div>
@@ -218,7 +249,7 @@ const Reviews = () => {
                                             </div>
 
                                             <div className="mb-3">
-                                                <span className="inline-block bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">
+                                                <span className="inline-block bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full">
                                                     {review.service}
                                                 </span>
                                             </div>
@@ -246,12 +277,14 @@ const Reviews = () => {
                         <button
                             onClick={prevSlide}
                             className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+                            disabled={totalPages <= 1}
                         >
                             <FaChevronLeft className="w-5 h-5 text-gray-600" />
                         </button>
                         <button
                             onClick={nextSlide}
                             className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+                            disabled={totalPages <= 1}
                         >
                             <FaChevronRight className="w-5 h-5 text-gray-600" />
                         </button>
@@ -259,12 +292,11 @@ const Reviews = () => {
 
                     {/* Dots Indicator */}
                     <div className="flex justify-center space-x-2 mt-8">
-                        {reviews.map((_, index) => (
+                        {Array.from({ length: totalPages }).map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => setCurrentSlide(index)}
-                                className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-purple-500' : 'bg-gray-300'
-                                    }`}
+                                className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-orange-500' : 'bg-gray-300'}`}
                             />
                         ))}
                     </div>
@@ -272,22 +304,22 @@ const Reviews = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="py-16 bg-purple-900">
+            <div className="py-16 bg-orange-900">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
                         Ready to Start Your Wellness Journey?
                     </h2>
-                    <p className="text-xl text-purple-100 mb-8">
+                    <p className="text-xl text-orange-100 mb-8">
                         Join hundreds of satisfied patients who have transformed their health with our comprehensive care
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button
                             onClick={scrollToForm}
-                            className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+                            className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
                         >
                             Book Your Consultation
                         </button>
-                        <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                        <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition-colors">
                             Learn More About Our Services
                         </button>
                     </div>

@@ -232,8 +232,8 @@ const FAQ = () => {
                 </div>
             </div>
             {/* General Section */}
-            <div className="flex flex-col py-10 justify-center items-center w-full h-full bg-purple-50">
-                <h2 className="text-4xl pb-5 text-purple-700 mb-6 text-center">General</h2>
+            <div className="flex flex-col py-10 justify-center items-center w-full h-full bg-orange-50">
+                <h2 className="text-4xl pb-5 text-orange-700 mb-6 text-center">General</h2>
                 <div className="w-full max-w-5xl rounded-2xl border border-blue-200 p-10">
                     <div className="divide-y divide-blue-100">
                         {faqs.map((item, i) => (

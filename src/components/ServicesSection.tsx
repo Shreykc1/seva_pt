@@ -63,7 +63,7 @@ const ServicesSection = () => {
                             <button
                                 key={service.title}
                                 onClick={() => navigate('/what-we-treat')}
-                                className="flex items-center space-x-3 px-8 py-4 bg-purple-50 hover:bg-purple-100 text-blue-700 font-bold rounded-lg shadow transition-all text-lg min-w-[220px] justify-center"
+                                className="flex items-center space-x-3 px-8 py-4 bg-orange-50 hover:bg-orange-100 text-blue-700 font-bold rounded-lg shadow transition-all text-lg min-w-[220px] justify-center"
                             >
                                 <span>{service.icon}</span>
                                 <span>{service.title}</span>
