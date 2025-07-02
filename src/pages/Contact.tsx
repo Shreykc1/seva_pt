@@ -2,11 +2,15 @@ import { useState, useRef, useEffect } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const Contact = () => {
+    const [showSuccess,setShowSuccess] = useState(false);
+    const [showFailure,setShowFailure] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
         service: '',
+        day: '',
+        time: '',
         message: ''
     });
 
@@ -19,10 +23,38 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Handle form submission here
-        console.log('Form submitted:', formData);
+        const startDateTime = `${formData.day}T${formData.time}`;
+        const endDateTime = `${formData.day}T${formData.time}`; // Add duration if needed
+
+        try {
+            const response = await fetch('http://localhost:5000/api/calendar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    summary: formData.service,
+                    description: formData.message,
+                    startDateTime,
+                    endDateTime,
+                    email: formData.email,
+                    timeZone: userTimeZone,
+                }),
+            });
+            const data = await response.json();
+            if (response.ok) {
+                setShowSuccess(true);
+
+                console.log('Event created: ' + data.eventLink);
+            } else {
+                setShowFailure(true);
+
+            }
+        } catch (err: any) {
+            alert('Error: ' + err.message);
+        }
     };
 
     const scrollToForm = () => {
@@ -133,7 +165,22 @@ const Contact = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {/* Contact Form */}
                         <div ref={formRef} className="bg-white rounded-2xl p-8 shadow-lg">
-                            <h2 className="text-3xl font-light text-gray-800 mb-6">Send Us a Message</h2>
+                          <div className='flex w-full justify-between'>
+                          <h2 className="text-3xl font-light text-gray-800 mb-6">Send Us a Message</h2>
+                          {
+                            showSuccess && (
+                                <div className='h-10 py-1.5 px-4 border border-green-500 rounded-lg bg-green-600/20 text-green-600'>
+                            Appointment Booked Succesfully!
+                          </div>
+                            )
+                          } {
+                            showFailure && (
+                                <div className='h-10 py-1.5 px-4 border border-green-500 rounded-lg bg-green-600/20 text-green-600'>
+                            Appointment Booked Succesfully!
+                          </div>
+                            )
+                          }
+                          </div>
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
@@ -199,6 +246,36 @@ const Contact = () => {
                                                 <option key={index} value={service}>{service}</option>
                                             ))}
                                         </select>
+                                    </div>
+                                </div>
+
+                                {/* Day and Time Selection */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label htmlFor="day" className="block text-sm font-medium text-gray-700 mb-2">
+                                            Preferred Day
+                                        </label>
+                                        <input
+                                            type="date"
+                                            id="day"
+                                            name="day"
+                                            value={formData.day}
+                                            onChange={handleInputChange}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-2">
+                                            Preferred Time
+                                        </label>
+                                        <input
+                                            type="time"
+                                            id="time"
+                                            name="time"
+                                            value={formData.time}
+                                            onChange={handleInputChange}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
+                                        />
                                     </div>
                                 </div>
 
