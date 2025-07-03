@@ -64,16 +64,16 @@ const ImageCarousel = () => {
       {/* Content Overlay */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             {slides[currentSlide].title}
           </h1>
-          <p className="text-xl md:text-2xl mb-12 opacity-90">
+          <p className="text-lg md:text-xl mb-12 opacity-90">
             {slides[currentSlide].subtitle}
           </p>
-          <button className="inline-flex items-center space-x-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded hover:bg-white hover:text-gray-900 transition-all duration-300 text-lg font-medium
+          <button className="inline-flex items-center space-x-2 bg-transparent border-2 border-white text-white px-6 py-2 rounded hover:bg-white hover:text-gray-900 transition-all duration-300 text-lg font-medium
           backdrop-blur-md
           ">
-            <span>VIEW LOCATIONS</span>
+            <span>VIEW LOCATION</span>
           </button>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import ImageCarousel from './components/ImageCarousel';
 import PainAreaSection from './components/PainAreaSection';
@@ -13,6 +13,8 @@ import Blog from './pages/Blog';
 import FAQ from './pages/FAQ';
 import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
+import SignIn from './pages/SignIn';
+import Dashboard from './pages/Dashboard';
 import { useEffect } from 'react';
 
 function App() {
@@ -51,6 +53,12 @@ function App() {
             <div className="min-h-screen">
                 <Header />
                 <Routes>
+                    <Route path="/dashboard" element={
+                        <PrivateRoute>
+                            <Dashboard />
+                        </PrivateRoute>
+                    } />
+                    <Route path="/signin" element={<SignIn />} />
                     <Route path="/what-we-offer" element={<WhatWeOffer />} />
                     <Route path="/what-we-treat" element={<WhatWeTreat />} />
                     <Route path="/about" element={<Blog />} />
@@ -72,6 +80,12 @@ function App() {
             </div>
         </BrowserRouter>
     );
+}
+
+// Simple private route wrapper
+function PrivateRoute({ children }: { children: JSX.Element }) {
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    return isAuthenticated ? children : <Navigate to="/signin" replace />;
 }
 
 export default App;

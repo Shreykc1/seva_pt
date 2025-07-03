@@ -10,6 +10,9 @@ const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const isHome = location.pathname === '/';
+    const isDashboard = location.pathname === '/dashboard';
+
+
 
     useEffect(() => {
         if (!isHome) return;
@@ -66,7 +69,7 @@ const Header = () => {
     };
 
     return (
-        <header className={`sticky top-0 left-0 right-0 z-50 transition-colors duration-300 ${headerBg}`}>
+        <header className={`sticky top-0 left-0 right-0 z-50 transition-colors duration-300 ${headerBg} ${isDashboard && 'hidden'}`}>
             {/* Top Bar - hidden on mobile */}
             <div className={`transition-colors pt-5 duration-300 ${textColor} hidden lg:block`}>
                 <div className="max-w-3xl ml-auto px-4 sm:px-6 lg:px-8 ">
@@ -74,10 +77,17 @@ const Header = () => {
                         <div className={`flex items-center space-x-6 ${textColor}`}>
                             <div className="flex items-center space-x-4">
                                 <Facebook className="w-5 h-5 hover:text-orange-300 cursor-pointer transition-colors" />
-                                <Youtube className="w-5 h-5 hover:text-orange-300 cursor-pointer transition-colors" />
+    
                                 <Instagram className="w-5 h-5 hover:text-orange-300 cursor-pointer transition-colors" />
                             </div>
-                            <div className="flex items-center space-x-1">
+                            <div
+                                className="flex items-center space-x-1 cursor-pointer hover:text-orange-600 transition"
+                                onClick={() => {
+                                    const el = document.getElementById('location');
+                                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }}
+                                title="Scroll to map"
+                            >
                                 <MapPin className="w-4 h-4" />
                                 <span>Based in NY</span>
                             </div>
@@ -118,7 +128,12 @@ const Header = () => {
 
                         {/* Desktop Navigation */}
                         <nav className="hidden lg:flex items-center space-x-8">
-                            
+                            <Link
+                                to="/"
+                                className={`flex items-center space-x-1 transition-colors py-2 font-medium ${isActive('/') ? 'text-orange-500 font-bold underline underline-offset-4' : textColor.replace('text-', 'text-')} hover:text-orange-700`}
+                            >
+                                <span>Home</span>
+                            </Link>
                             <div className="relative group">
                                 <button className={`flex items-center space-x-1 transition-colors py-2 font-medium ${isActive('/what-we-offer') || isActive('/what-we-treat') ? 'text-orange-700 font-bold underline underline-offset-4' : textColor.replace('text-', 'text-')} hover:text-orange-700`}>
                                     <span>Services</span>

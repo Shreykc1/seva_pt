@@ -45,7 +45,7 @@ const ServicesSection = () => {
                 {/* Right: Text */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 py-16 lg:py-0 lg:px-20 max-w-3xl mx-auto">
                     <h2 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                        Physical and Occupational Therapy in New York City
+                        Advanced Physical Therapy in New York City
                     </h2>
                     <h3 className="text-2xl font-bold text-blue-700 mb-6">Who We Are</h3>
                     <p className="text-gray-600 mb-8 text-xl">

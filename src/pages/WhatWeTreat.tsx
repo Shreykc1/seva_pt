@@ -137,6 +137,11 @@ const categories = [
         image: 'https://images.pexels.com/photos/4498217/pexels-photo-4498217.jpeg?auto=compress&w=400&h=200&fit=crop',
         items: [],
     },
+    {
+        title: 'Sports Therapy',
+        image: 'https://images.pexels.com/photos/4498217/pexels-photo-4498217.jpeg?auto=compress&w=400&h=200&fit=crop',
+        items: ['Running', 'Walking', 'Jogging'],
+    },
 ];
 
 const WhatWeTreat = () => {

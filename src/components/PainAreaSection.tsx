@@ -49,12 +49,12 @@ const PainAreaSection = () => {
                 {/* Left: Text and dynamic message */}
                 <div className="flex-1 max-w-2xl">
                     <div className="flex items-center mb-10">
-                        <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mr-8">
+                        <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mr-8">
                             <svg width="48" height="48" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2563eb" opacity="0.1" /><path d="M12 8v4l3 3" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                         </div>
                         <h2 className="text-5xl font-extrabold text-gray-900">Where Is Your Pain?</h2>
                     </div>
-                    <p className="text-blue-700 font-bold mb-6 text-2xl">
+                    <p className="text-orange-700 font-bold mb-6 text-2xl">
                         {active ? PAIN_AREAS.find(area => area.key === active)?.label : 'Discover how our neck and back-pain experts can treat specific areas of your body.'}
                     </p>
                     <p className="text-gray-600 mb-10 min-h-[120px] text-xl transition-all">
@@ -90,7 +90,7 @@ const PainAreaSection = () => {
                                 <button
                                     key={area.key}
                                     type="button"
-                                    className={`absolute px-6 py-2 bg-white/90 rounded-full shadow text-blue-700 text-base font-bold transition border-2 ${active === area.key ? 'border-blue-700 bg-blue-100' : 'border-transparent'} `}
+                                    className={`absolute px-6 py-2 bg-white/90 rounded-full shadow text-orange-700 text-base font-bold transition border-2 ${active === area.key ? 'border-orange-700 bg-orange-100' : 'border-transparent'} `}
                                     style={{ left: style.left, top: style.top }}
                                     onClick={() => setActive(active === area.key ? null : area.key)}
                                 >

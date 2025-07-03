@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { addDocument } from '../functions/crud';
 
 const Contact = () => {
-    const [showSuccess,setShowSuccess] = useState(false);
-    const [showFailure,setShowFailure] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showFailure, setShowFailure] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -27,33 +28,25 @@ const Contact = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const startDateTime = `${formData.day}T${formData.time}`;
-        const endDateTime = `${formData.day}T${formData.time}`; // Add duration if needed
-
         try {
-            const response = await fetch('http://localhost:5000/api/calendar', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    summary: formData.service,
-                    description: formData.message,
-                    startDateTime,
-                    endDateTime,
-                    email: formData.email,
-                    timeZone: userTimeZone,
-                }),
+            await addDocument('contactMessages', {
+                ...formData,
+                timeZone: userTimeZone,
             });
-            const data = await response.json();
-            if (response.ok) {
-                setShowSuccess(true);
-
-                console.log('Event created: ' + data.eventLink);
-            } else {
-                setShowFailure(true);
-
-            }
-        } catch (err: any) {
-            alert('Error: ' + err.message);
+            setShowSuccess(true);
+            setShowFailure(false);
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                service: '',
+                day: '',
+                time: '',
+                message: ''
+            });
+        } catch (err) {
+            setShowFailure(true);
+            setShowSuccess(false);
         }
     };
 
@@ -165,22 +158,22 @@ const Contact = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {/* Contact Form */}
                         <div ref={formRef} className="bg-white rounded-2xl p-8 shadow-lg">
-                          <div className='flex w-full justify-between'>
-                          <h2 className="text-3xl font-light text-gray-800 mb-6">Send Us a Message</h2>
-                          {
-                            showSuccess && (
-                                <div className='h-10 py-1.5 px-4 border border-green-500 rounded-lg bg-green-600/20 text-green-600'>
-                            Appointment Booked Succesfully!
-                          </div>
-                            )
-                          } {
-                            showFailure && (
-                                <div className='h-10 py-1.5 px-4 border border-green-500 rounded-lg bg-green-600/20 text-green-600'>
-                            Appointment Booked Succesfully!
-                          </div>
-                            )
-                          }
-                          </div>
+                            <div className='flex w-full justify-between'>
+                                <h2 className="text-3xl font-light text-gray-800 mb-6">Send Us a Message</h2>
+                                {
+                                    showSuccess && (
+                                        <div className='h-10 py-1.5 px-4 border border-green-500 rounded-lg bg-green-600/20 text-green-600'>
+                                            Appointment Booked Succesfully!
+                                        </div>
+                                    )
+                                } {
+                                    showFailure && (
+                                        <div className='h-10 py-1.5 px-4 border border-green-500 rounded-lg bg-green-600/20 text-green-600'>
+                                            Appointment Booked Succesfully!
+                                        </div>
+                                    )
+                                }
+                            </div>
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>

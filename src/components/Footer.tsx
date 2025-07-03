@@ -7,7 +7,7 @@ const Footer = () => {
   ];
 
   const services = [
-    'Physical Therapy', 'Acupuncture', 'Chiropractic', 'Massage Therapy', 'Nutrition', 'Wellness'
+    'Physical Therapy', 'Massage Therapy', 'Wellness'
   ];
 
   return (
