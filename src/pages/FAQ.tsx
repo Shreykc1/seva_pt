@@ -111,7 +111,7 @@ const faqs = [
                     <li><span className="font-bold">Treatment:</span> Based on the care plan we have developed for you and if there are no contraindications presented in any earlier components of your first visit, we may decide it will be beneficial to start your comprehensive therapy journey on the first visit.</li>
                     <li><span className="font-bold">Scheduling and Follow-Up:</span> We will assist you in scheduling future appointments for your treatment sessions. These appointments will be tailored to your treatment plan, ensuring you receive the care you need to address your musculoskeletal condition effectively.</li>
                 </ul>
-                <p>At SEVA Health and Wellness, we are committed to providing the highest level of care and support during your journey to better health. Your first visit is a crucial step in understanding your condition and creating a plan for healing and recovery. We look forward to working closely with you to address your musculoskeletal concerns and guide you towards a pain-free and improved quality of life.</p>
+                <p>At SEVA PT, we are committed to providing the highest level of care and support during your journey to better health. Your first visit is a crucial step in understanding your condition and creating a plan for healing and recovery. We look forward to working closely with you to address your musculoskeletal concerns and guide you towards a pain-free and improved quality of life.</p>
             </div>
         )
     },
