@@ -1,6 +1,7 @@
-import React from 'react';
+
 import { CheckCircle, Users, MapPin, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import CountUp from './ui/countup';
 
 const AboutSection = () => {
     const stats = [
@@ -51,7 +52,15 @@ const AboutSection = () => {
                                         {stat.icon}
                                     </div>
                                     <div className="text-3xl font-bold text-gray-900 mb-1">
-                                        {stat.number}
+                                        <CountUp
+                                            to={parseInt(stat.number.replace(/[^\d]/g, '')) || stat.number}
+                                            from={0}
+                                            duration={0.7}
+                                            separator=","
+                                            onStart={() => { }}
+                                            onEnd={() => { }}
+                                        />
+                                        {typeof stat.number === 'string' && /\D/.test(stat.number) ? stat.number.replace(/\d|,/g, '') : ''}
                                     </div>
                                     <div className="text-sm text-gray-600">
                                         {stat.label}

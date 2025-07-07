@@ -15,13 +15,23 @@ const Contact = () => {
         message: ''
     });
 
+    const [timeAmPm, setTimeAmPm] = useState<'AM' | 'PM'>('AM');
+
     const formRef = useRef<HTMLDivElement>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+        if (e.target.name === 'time') {
+            // Only update the time part, keep AM/PM as is
+            setFormData({
+                ...formData,
+                time: e.target.value
+            });
+        } else {
+            setFormData({
+                ...formData,
+                [e.target.name]: e.target.value
+            });
+        }
     };
 
     const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -261,14 +271,55 @@ const Contact = () => {
                                         <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-2">
                                             Preferred Time
                                         </label>
-                                        <input
-                                            type="time"
-                                            id="time"
-                                            name="time"
-                                            value={formData.time}
-                                            onChange={handleInputChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
-                                        />
+                                        <div className="flex gap-2">
+                                            <input
+                                                type="number"
+                                                min="1"
+                                                max="12"
+                                                className="border rounded px-3 py-2 w-20"
+                                                value={formData.time.split(':')[0] || ''}
+                                                onChange={e => {
+                                                    let hour = e.target.value.replace(/[^0-9]/g, '');
+                                                    if (hour.length > 2) hour = hour.slice(0, 2);
+                                                    setFormData({
+                                                        ...formData,
+                                                        time: hour + ':' + (formData.time.split(':')[1]?.split(' ')[0] || '00') + (formData.time.split(' ')[1] ? ' ' + formData.time.split(' ')[1] : ' ' + timeAmPm)
+                                                    });
+                                                }}
+                                                placeholder="HH"
+                                            />
+                                            <span className="self-center">:</span>
+                                            <input
+                                                type="number"
+                                                min="0"
+                                                max="59"
+                                                className="border rounded px-3 py-2 w-20"
+                                                value={formData.time.split(':')[1]?.split(' ')[0] || ''}
+                                                onChange={e => {
+                                                    let min = e.target.value.replace(/[^0-9]/g, '');
+                                                    if (min.length > 2) min = min.slice(0, 2);
+                                                    setFormData({
+                                                        ...formData,
+                                                        time: (formData.time.split(':')[0] || '12') + ':' + min + (formData.time.split(' ')[1] ? ' ' + formData.time.split(' ')[1] : ' ' + timeAmPm)
+                                                    });
+                                                }}
+                                                placeholder="MM"
+                                            />
+                                            <select
+                                                className="border rounded px-2 py-2"
+                                                value={formData.time.split(' ')[1] || timeAmPm}
+                                                onChange={e => {
+                                                    setTimeAmPm(e.target.value as 'AM' | 'PM');
+                                                    setFormData({
+                                                        ...formData,
+                                                        time: (formData.time.split(':')[0] || '12') + ':' + (formData.time.split(':')[1]?.split(' ')[0] || '00') + ' ' + e.target.value
+                                                    });
+                                                }}
+                                            >
+                                                <option value="AM">AM</option>
+                                                <option value="PM">PM</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -303,7 +354,7 @@ const Contact = () => {
                                 <h3 className="text-xl font-semibold text-gray-800 mb-4">Visit Our Location</h3>
                                 <div className="w-full h-64 rounded-lg overflow-hidden">
                                     <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.9743457052236!2d-74.6442136!3d40.3207269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3e1d1d9116cad%3A0x3fdc5b0d6eea2f99!2sSeva%20Orthopedic%20Physical%20Therapy!5e0!3m2!1sen!2sin!4v1751101193545!5m2!1sen!2sin"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.3242486554213!2d-73.9928103!3d40.7328902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a7483198c9%3A0xdaade762c59136b!2sSpace%20For%20Wellness!5e0!3m2!1sen!2sin!4v1751870245997!5m2!1sen!2sin"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
@@ -325,9 +376,7 @@ const Contact = () => {
                                     <a href="#" className="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white hover:bg-pink-700 transition-colors">
                                         <FaInstagram className="w-5 h-5" />
                                     </a>
-                                    <a href="#" className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
-                                        <FaYoutube className="w-5 h-5" />
-                                    </a>
+                                    
                                 </div>
                             </div>
 

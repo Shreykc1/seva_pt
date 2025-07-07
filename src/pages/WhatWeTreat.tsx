@@ -3,7 +3,7 @@ import { FaRegDotCircle } from 'react-icons/fa';
 const categories = [
     {
         title: 'Back & Spine',
-        image: 'https://images.pexels.com/photos/4506105/pexels-photo-4506105.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/back.jpg',
         items: [
             'Back Pain',
             'Neck Pain',
@@ -19,7 +19,7 @@ const categories = [
     },
     {
         title: 'Foot & Ankle',
-        image: 'https://images.pexels.com/photos/3758056/pexels-photo-3758056.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/ankle.jpeg',
         items: [
             'Foot & Ankle Pain',
             'Ankle Sprains',
@@ -32,7 +32,7 @@ const categories = [
     },
     {
         title: 'Hip',
-        image: 'https://images.pexels.com/photos/11509788/pexels-photo-11509788.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/hip.webp',
         items: [
             'Hip Pain',
             'Hip Arthroscopy',
@@ -44,7 +44,7 @@ const categories = [
     },
     {
         title: 'Knee',
-        image: 'https://images.pexels.com/photos/4506107/pexels-photo-4506107.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/knee.jpg',
         items: [
             'Knee Pain',
             'Torn Meniscus Treatment',
@@ -58,7 +58,7 @@ const categories = [
     },
     {
         title: 'Shoulder Pain',
-        image: 'https://images.pexels.com/photos/4506106/pexels-photo-4506106.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/shoulder.jpg',
         items: [
             'Frozen Shoulder (Adhesive Capsulitis)',
             'Postoperative Shoulder Care',
@@ -68,7 +68,7 @@ const categories = [
     },
     {
         title: 'Elbow Pain',
-        image: 'https://images.pexels.com/photos/4506108/pexels-photo-4506108.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/elbow.jpg',
         items: [
             'Golfers Elbow',
             'Tennis Elbow',
@@ -76,7 +76,7 @@ const categories = [
     },
     {
         title: 'Wrist & Hand Pain',
-        image: 'https://images.pexels.com/photos/4498212/pexels-photo-4498212.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/wrist.jpg',
         items: [
             'Carpal Tunnel Syndrome',
             "Dupuytren's Contracture",
@@ -86,7 +86,7 @@ const categories = [
     },
     {
         title: 'Dance Medicine',
-        image: 'https://images.pexels.com/photos/3758057/pexels-photo-3758057.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/dance.png',
         items: [
             'Hip Pain (labral tears, impingement, snapping hip syndrome)',
             'Muscle Strains',
@@ -101,7 +101,7 @@ const categories = [
     },
     {
         title: 'Chronic Pain',
-        image: 'https://images.pexels.com/photos/4506109/pexels-photo-4506109.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/chronic.jpg',
         items: [
             'Pain Management',
             'Chronic Pain',
@@ -109,37 +109,32 @@ const categories = [
     },
     {
         title: 'Osteoarthritis',
-        image: 'https://images.pexels.com/photos/4498213/pexels-photo-4498213.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/arth.jpg',
         items: [],
     },
     {
         title: 'TMD',
-        image: 'https://images.pexels.com/photos/4506110/pexels-photo-4506110.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/tmd.jpg',
         items: ['Temporomandibular Disorder'],
     },
     {
         title: 'Pelvic Floor Conditions',
-        image: 'https://images.pexels.com/photos/4498214/pexels-photo-4498214.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/pelvis.jpg',
         items: [],
     },
     {
         title: 'Vestibular Dysfunction',
-        image: 'https://images.pexels.com/photos/4498215/pexels-photo-4498215.jpeg?auto=compress&w=400&h=200&fit=crop',
-        items: [],
-    },
-    {
-        title: 'Neurological Impairments',
-        image: 'https://images.pexels.com/photos/4498216/pexels-photo-4498216.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/vest.png',
         items: [],
     },
     {
         title: 'Tendinitis',
-        image: 'https://images.pexels.com/photos/4498217/pexels-photo-4498217.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/tend.jpg',
         items: [],
     },
     {
         title: 'Sports Therapy',
-        image: 'https://images.pexels.com/photos/4498217/pexels-photo-4498217.jpeg?auto=compress&w=400&h=200&fit=crop',
+        image: '/images/sports.jpg',
         items: ['Running', 'Walking', 'Jogging'],
     },
 ];
@@ -177,7 +172,7 @@ const WhatWeTreat = () => {
                         <img
                             src={cat.image}
                             alt={cat.title + ' illustration'}
-                            className="w-full h-32 object-cover rounded-2xl mb-4 shadow-md"
+                            className="w-full h-40 object-cover rounded-2xl mb-4 shadow-md"
                         />
                         {/* Icon with gradient ring */}
                         <div className="flex items-center mb-4">

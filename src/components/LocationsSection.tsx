@@ -16,14 +16,14 @@ const LocationsSection = () => {
                 <div className="w-full mt-16 flex justify-center">
                     <div className="w-full max-w-6xl h-[450px] rounded-2xl overflow-hidden shadow-lg">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.9743457052236!2d-74.6442136!3d40.3207269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3e1d1d9116cad%3A0x3fdc5b0d6eea2f99!2sSeva%20Orthopedic%20Physical%20Therapy!5e0!3m2!1sen!2sin!4v1751101193545!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.3242486554213!2d-73.9928103!3d40.7328902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a7483198c9%3A0xdaade762c59136b!2sSpace%20For%20Wellness!5e0!3m2!1sen!2sin!4v1751870245997!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            title="Seva Orthopedic Physical Therapy Map"
+                            title="Space For Wellness Map"
                         ></iframe>
                     </div>
                 </div>

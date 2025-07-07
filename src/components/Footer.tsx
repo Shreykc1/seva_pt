@@ -27,7 +27,7 @@ const Footer = () => {
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Providing personalized, one-on-one physical therapy and wellness services
-              across New York City for over 10 years.
+              across New York City for over 5 years.
             </p>
             <div className="flex space-x-4">
               <Facebook className="w-6 h-6 text-gray-400 hover:text-orange-400 cursor-pointer transition-colors" />
@@ -87,9 +87,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Clock className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
                 <div className='-mt-1'>
-                  <p className="text-gray-300">Mon-Fri: 7AM-8PM</p>
-                  <p className="text-gray-300">Sat: 8AM-4PM</p>
-                  <p className="text-sm text-gray-400">Most Locations</p>
+                  <p className="text-gray-300">Mon-Fri: 11AM-7PM</p>
+                  <p className="text-gray-300">Sat: 10AM-3PM</p>
                 </div>
               </div>
             </div>

@@ -47,7 +47,7 @@ const ServicesSection = () => {
                     <h2 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                         Advanced Physical Therapy in New York City
                     </h2>
-                    <h3 className="text-2xl font-bold text-blue-700 mb-6">Who We Are</h3>
+                    <h3 className="text-2xl font-bold text-orange-700 mb-6">Who We Are</h3>
                     <p className="text-gray-600 mb-8 text-xl">
                         Welcome to SEVA Physical and Occupational Therapy NYC, your premier destination for specialized orthopedic physical therapy and sports performance physical therapy services in the heart of New York City. Our devoted team of licensed physical, occupational, and hand therapists is dedicated to improving your well-being through personalized, one-on-one care.
                     </p>
@@ -63,7 +63,7 @@ const ServicesSection = () => {
                             <button
                                 key={service.title}
                                 onClick={() => navigate('/what-we-treat')}
-                                className="flex items-center space-x-3 px-8 py-4 bg-orange-50 hover:bg-orange-100 text-blue-700 font-bold rounded-lg shadow transition-all text-lg min-w-[220px] justify-center"
+                                className="flex items-center space-x-3 px-8 py-4 bg-orange-50 hover:bg-orange-100 text-orange-700 font-bold rounded-lg shadow transition-all text-lg min-w-[220px] justify-center"
                             >
                                 <span>{service.icon}</span>
                                 <span>{service.title}</span>
